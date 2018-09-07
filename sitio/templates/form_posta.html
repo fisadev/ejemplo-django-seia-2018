@@ -1,0 +1,12 @@
+<h1>Noticias!</h1>
+
+
+<form method="post" action=".">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>
+        <input type="submit" name="boton_guardar" value="Guardar" />
+    </p>
+</form>
+
+{% include 'publicidad.html' %}

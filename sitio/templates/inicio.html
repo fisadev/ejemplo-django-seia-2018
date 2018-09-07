@@ -1,0 +1,13 @@
+<h1>Noticias.com</h1>
+<p>bienvenido!</p>
+
+{% for noticia in lista_noticias %}
+    <h3>{{ noticia.fecha }} {{ noticia.titulo|upper }}</h3>
+    <p>{{ noticia.texto }}</p>
+    {% if noticia.archivada %}
+        <p>Archivada!!!</p>
+    {% endif %}
+{% endfor %}
+
+
+
