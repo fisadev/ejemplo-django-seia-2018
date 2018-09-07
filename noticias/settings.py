@@ -123,7 +123,3 @@ STATIC_URL = '/static/'
 
 
 django_heroku.settings(locals())
-import dj_database_url
-DATABASES = {
-    'default': dj_database_url.config(default=DATABASE_URL)
-}
