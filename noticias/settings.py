@@ -78,6 +78,7 @@ WSGI_APPLICATION = 'noticias.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'noticias',
     }
 }
 
