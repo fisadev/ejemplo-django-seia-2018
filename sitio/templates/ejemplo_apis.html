@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extra_js %}
+    <script src="{% static "sitio/js/ejemplo_apis.js" %}"></script>
+{% endblock %}
+
+{% block contenido %}
+    <h3>Hola</h3>
+    <p>Hay <span id="contador-noticias">N</span> noticias</p>
+
+    <div id="noticias-recientes">
+    </div>
+{% endblock %}
