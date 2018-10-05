@@ -1,6 +1,14 @@
 from django.shortcuts import render
-from sitio.models import Noticia
+from django.http import JsonResponse
+
+from rest_framework import viewsets
+
+from rest_framework.filters import OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
+
+from sitio.models import Noticia, Categoria
 from sitio.forms import FormNoticia, FormNoticiaMagico
+from sitio.serializers import NoticiaSerializer, CategoriaSerializer
 from datetime import datetime
 
 
@@ -45,3 +53,34 @@ def form_posta(request):
             form.save()
 
     return render(request, 'form_posta.html', {'form': form})
+
+
+def ejemplo_apis(request):
+    return render(request, 'ejemplo_apis.html', {})
+
+
+def api_cantidad_noticias(request):
+    data = {
+        'cantidad_noticias': Noticia.objects.count()
+    }
+    return JsonResponse(data)
+
+
+def ajax_noticias_recientes(request):
+    datos = {
+        'lista_noticias': Noticia.objects.order_by('-fecha')[:3]
+    }
+    return render(request, 'noticias_recientes.html', datos)
+
+
+
+class CategoriaViewSet(viewsets.ModelViewSet):
+    queryset = Categoria.objects.all().order_by('nombre')
+    serializer_class = CategoriaSerializer
+
+
+class NoticiaViewSet(viewsets.ModelViewSet):
+    queryset = Noticia.objects.all().order_by('-fecha')
+    serializer_class = NoticiaSerializer
+    filter_backends = (OrderingFilter, DjangoFilterBackend)
+    filter_fields = ('archivada', 'categoria')
