@@ -34,4 +34,5 @@ urlpatterns = [
     path('ajax/noticias_recientes/', views.ajax_noticias_recientes),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('search/', include('haystack.urls')),
 ]
