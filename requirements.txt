@@ -5,3 +5,5 @@ djangorestframework
 django_filter
 django-haystack
 whoosh
+elasticsearch
+django-haystack-elasticsearch5
