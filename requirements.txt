@@ -3,3 +3,5 @@ django-heroku
 gunicorn
 djangorestframework
 django_filter
+django-haystack
+whoosh
