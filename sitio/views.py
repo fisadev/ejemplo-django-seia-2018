@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import JsonResponse
 
 from rest_framework import viewsets
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
@@ -77,6 +80,9 @@ def ajax_noticias_recientes(request):
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all().order_by('nombre')
     serializer_class = CategoriaSerializer
+    permission_classes = (IsAuthenticated, )
+    authentication_classes = (TokenAuthentication, )
+
 
 
 class NoticiaViewSet(viewsets.ModelViewSet):

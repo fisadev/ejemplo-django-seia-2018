@@ -33,6 +33,7 @@ urlpatterns = [
     path('api/cantidad_noticias/', views.api_cantidad_noticias),
     path('ajax/noticias_recientes/', views.ajax_noticias_recientes),
     path('admin/', admin.site.urls),
+    path('api/rest-auth/', include('rest_auth.urls')),
     path('api/', include(router.urls)),
     path('search/', include('haystack.urls')),
 ]

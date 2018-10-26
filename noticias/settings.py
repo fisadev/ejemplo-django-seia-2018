@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'haystack',
     'sitio',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
     'django_filters',
 ]
 

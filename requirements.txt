@@ -7,3 +7,4 @@ django-haystack
 whoosh
 elasticsearch
 django-haystack-elasticsearch5
+django-rest-auth
